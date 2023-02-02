@@ -1,0 +1,26 @@
+{
+  "id": "0052b83a-2e18-4b4f-9675-160b6b882cc7",
+  "name": "JS_in_BC",
+  "publisher": "Default publisher",
+  "version": "1.0.0.0",
+  "brief": "",
+  "description": "",
+  "privacyStatement": "",
+  "EULA": "",
+  "help": "",
+  "url": "",
+  "logo": "",
+  "dependencies": [],
+  "screenshots": [],
+  "platform": "1.0.0.0",
+  "application": "20.0.0.0",
+  "resourceExposurePolicy": {
+    "allowDebugging": true,
+    "allowDownloadingSource": true,
+    "includeSourceInSymbolFile": true
+  },
+  "runtime": "9.1",
+  "features": [
+    "NoImplicitWith"
+  ]
+}

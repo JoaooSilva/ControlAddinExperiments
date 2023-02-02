@@ -1,0 +1,21 @@
+{
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "Add-In Controlers",
+            "request": "launch",
+            "type": "al",
+            "environmentType": "OnPrem",
+            "server": "http://localhost",
+            "serverInstance": "BC200",
+            "authentication": "Windows",
+            "startupObjectId": 60004,
+            "startupObjectType": "Page",
+            "breakOnError": "None",
+            "launchBrowser": true,
+            "tenant": "default",
+            "schemaUpdateMode": "ForceSync",
+            "port": 7049
+        }
+    ]
+}

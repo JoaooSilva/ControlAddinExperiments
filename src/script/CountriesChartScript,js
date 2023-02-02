@@ -1,0 +1,28 @@
+//JOA001+ 
+function GeographicGraph(DataJson)
+{
+  google.charts.load('current', {
+    'packages':['geochart'],
+  });
+  google.charts.setOnLoadCallback(drawRegionsMap);
+
+  function drawRegionsMap() {
+    var data = google.visualization.arrayToDataTable(DataJson)
+    let trackHeight = 30;
+    var options = {
+      displayMode: 'region',
+      // colorAxis: {colors: ['#ebc934', '#eb3434']},
+      datalessRegionColor: '#D0D3D4',
+      backgroundColor: 'white',
+      width: 797
+    };
+
+    var chart = new google.visualization.GeoChart(document.getElementById('controlAddIn'));
+    chart.draw(data, options);
+
+    var cli = chart.getChartLayoutInterface();
+    var chartSize = cli.getBoundingBox('chart');
+    alert(chartSize);
+  }
+}
+//JOA001-
