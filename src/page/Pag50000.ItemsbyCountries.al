@@ -48,11 +48,14 @@ page 60000 "Items by Countries"
             group(Charts2)
             {
                 ShowCaption = false;
+                //Adding control add-in to page
                 usercontrol(Chart; "Countries Chart AddIn")
                 {
                     ApplicationArea = all;
+                    //When the current page is loaded the control add-in is also loaded, therefore the startup script will run wich will invoke this trigger
                     trigger ControlReady()
                     begin
+                        //Procedure that handles the logic to send json data to our chart
                         CalculateItemsPerCountry(Rec."No.");
                     end;
                 }
@@ -86,6 +89,7 @@ page 60000 "Items by Countries"
         }
     }
 
+    //In this procedure the intuit is to find where the selected item was sold across the world. So when we do a sales order and add items we can know wheres the country of the buyer.
     procedure CalculateItemsPerCountry(itemNo: Code[20])
     var
         SalesInvHdr: Record "Sales Invoice Header";
@@ -129,6 +133,7 @@ page 60000 "Items by Countries"
             JsonA.Add(tempList.Get(keys.Get(counter)));
             DataA.Add(JsonA);
         end;
+        //Lets send the json array to our javascript function so then we can draw the chart with the data
         CurrPage.Chart.GeographicGraph(DataA);
     end;
 

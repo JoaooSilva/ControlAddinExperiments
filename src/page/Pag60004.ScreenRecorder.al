@@ -16,26 +16,30 @@ page 60004 "Screen Recorder"
                 trigger ControlReady()
                 begin
                 end;
-
+                //If something go wrong and we cannot start to record media or if the user click on the cancel
+                //button this trigger will be activated
                 trigger ChangeButtonsStateCancelClick()
                 begin
-                    //Se este evento for invocado é porque por algum motivo (opção cancelar incluida) não vamos começar a gravar
+                    //So in this case lets only show the start recording button
                     ButtonsVisibility_InitSates();
                 end;
-
+                //If the media recorder initializes correctly we call this trigger,
                 trigger ChangeButtonsStateStartClick()
                 begin
+                    //We have started the recording so lets only show the cancel button
                     ButtonsVisibility_ClickedStart();
                 end;
-
+                //If the user click on the stop button this will be triggered
                 trigger ChangeButtonsStateStopClick()
                 begin
+                    //Lets show the buttons to start recording and download the recorded video
                     ButtonsVisibility_ClickedStop();
                 end;
-
-                trigger ChangeButtonsStateDownloadOrAttachClick()
+                //If the user click on "Download" button
+                trigger ChangeButtonsStateDownloadClick()
                 begin
-                    ButtonsVisibility_ClickedDownloadOrAttach();
+                    //Lets show the buttons to start recording and download the recorded video
+                    ButtonsVisibility_ClickedDownload();
                 end;
             }
         }
@@ -62,6 +66,7 @@ page 60004 "Screen Recorder"
                     var
                         Answer: Boolean;
                     begin
+                        //This procedure will run the same function on our JS script and start the media recorder
                         CurrPage.ScreenRecorderControlAddIn.startRecord();
                     end;
                 }
@@ -76,6 +81,7 @@ page 60004 "Screen Recorder"
                     Visible = StopRecordingVisibility;
                     trigger OnAction()
                     begin
+                        //This procedure will run the same function on our JS script and stop the media recorder
                         CurrPage.ScreenRecorderControlAddIn.stopScreen();
                     end;
                 }
@@ -90,6 +96,7 @@ page 60004 "Screen Recorder"
                     Visible = DownloadVisibility;
                     trigger OnAction()
                     begin
+                        //This procedure will run the same function on our JS script and download the media tracks 
                         CurrPage.ScreenRecorderControlAddIn.downloadVideo();
                     end;
                 }
@@ -101,7 +108,6 @@ page 60004 "Screen Recorder"
     begin
         StartRecordingVisibility := false;
         StopRecordingVisibility := true;
-        AttachmentVisibility := false;
         DownloadVisibility := false;
     end;
 
@@ -110,15 +116,13 @@ page 60004 "Screen Recorder"
         StartRecordingVisibility := true;
         StopRecordingVisibility := false;
         DownloadVisibility := true;
-        AttachmentVisibility := true;
     end;
 
-    procedure ButtonsVisibility_ClickedDownloadOrAttach()
+    procedure ButtonsVisibility_ClickedDownload()
     begin
         StartRecordingVisibility := true;
         StopRecordingVisibility := false;
         DownloadVisibility := true;
-        AttachmentVisibility := true;
     end;
 
     procedure ButtonsVisibility_InitSates()
@@ -126,7 +130,6 @@ page 60004 "Screen Recorder"
         StartRecordingVisibility := true;
         StopRecordingVisibility := false;
         DownloadVisibility := false;
-        AttachmentVisibility := false;
     end;
 
     trigger OnOpenPage()
@@ -135,16 +138,7 @@ page 60004 "Screen Recorder"
     end;
 
     var
-        FromDisplayName: Text;
-        EditorReady: Boolean;
-        LastText: Text;
-        EmailSubjectField: Text[100];
-        EmailCCField: Text[100];
-        EmailReceiptField: Text[50];
         StartRecordingVisibility, StopRecordingVisibility, DownloadVisibility : boolean;
-        AttachmentVisibility: Boolean;
-        //
-        EmailBody, EmailSubject : Text;
 }
 
 //JOA005-

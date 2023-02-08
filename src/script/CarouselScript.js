@@ -48,6 +48,7 @@ function carouselMarkup(data) {
 window.SetCarouselData = function (data) {
     try {
         var markup = carouselMarkup(data);
+        //Adding the html code to our control add-in div
         document.getElementById('controlAddIn').innerHTML = markup;
         $('#carouselExampleCaptions').carousel();
         console.log(markup);

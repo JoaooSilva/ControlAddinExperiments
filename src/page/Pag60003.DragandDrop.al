@@ -10,12 +10,12 @@ page 60003 "Drag and Drop"
     {
         area(Content)
         {
+            //Adding control add-in to page
             usercontrol(DragAndDropSection; "Drag and Drop AddIn")
             {
                 ApplicationArea = All;
                 trigger ControlReady()
                 begin
-                    CurrPage.DragAndDropSection.DeleteBox();
                     CurrPage.DragAndDropSection.embedDragDropBox();
                 end;
 
@@ -41,9 +41,5 @@ page 60003 "Drag and Drop"
             }
         }
     }
-    trigger OnClosePage()
-    begin
-        CurrPage.DragAndDropSection.DeleteBox();
-    end;
 }
 

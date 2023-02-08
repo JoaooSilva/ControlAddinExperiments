@@ -1,28 +1,38 @@
 //JOA005+ 
 controladdin "Screen Recorder AddIn"
 {
+    //Reserved area by the control add-in.
     RequestedHeight = 450;
     RequestedWidth = 788;
+
     VerticalStretch = true;
     VerticalShrink = true;
     HorizontalStretch = true;
     HorizontalShrink = true;
+    //Script to include in the control add-in.  
     Scripts = 'src\script\ScreenRecorderScript.js';
+    //This script is invoked when the webpage (in this case page 60004 "Screen Recorder") with the control add-in is loaded.
     StartupScript = 'src\script\ControlReady_startup.js';
 
+    //In the ControlReady_startup.js we call this event to initialize the control add-in. This event will invoke the trigger ControlReady() in "Screen Recorder" page.
     event ControlReady()
+    //Event to change buttons visibility on control add-in page when the user hits the cancel button
     event ChangeButtonsStateCancelClick()
+    //Event to change buttons visibility on control add-in page when the user hits the stop button
     event ChangeButtonsStateStopClick()
+    //Event to change buttons visibility on control add-in page when the user hits the start button
     event ChangeButtonsStateStartClick()
-    event ChangeButtonsStateDownloadOrAttachClick()
+    //Event to change buttons visibility on control add-in page when the user hits the download button
+    event ChangeButtonsStateDownloadClick()
+
     //retornar attachment
     event AttachmentReady(attachmentLocation: Text)
 
-
-    procedure addScreenRecorder()
+    //Procedure to start the MediaRecorder and start recording tracks
     procedure startRecord()
+    //Procedure to stop the tracks recording
     procedure stopScreen()
+    //Procedure that will download the recorded tracks in mp4 format
     procedure downloadVideo()
-    procedure receiveAttachment()
 }
 //JOA005-

@@ -21,6 +21,7 @@ new images and we can interact with them
 
 //JOA004+ 
 Drag and Drop box - A box that will add users the funcionality to drop Json files and create
+!!EXPERIMENTAL!!
 items.
 
 In the "item list" page we will have in the first area of factboxes pane a box that will make
@@ -32,3 +33,14 @@ that information to create one or more items.
 Screen Recorder - Record the screen and download the video
 
 //JOA005-
+
+//JOA006+ 
+Customer Notes - Funcionality to create notes for each customer
+
+In the "Customer List" and "Customer Card" we have two actions. The first one is to create a note for the selected
+customer, we use javascript to create a text editor. The second action will show the list of notes for the customer
+and we can see each note and edit them. 
+
+For this example i needed to implement "No Series.", so you will se some tables and pages just for that
+purpose.
+//JOA006-

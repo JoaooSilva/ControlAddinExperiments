@@ -3,6 +3,7 @@ pageextension 60000 "Item List Ext" extends "Item List"
     layout
     {
         //JOA004+ 
+        //Adding page responsible for the control add-in as the first of factboxes on the page 
         addfirst(factboxes)
         {
             part(DragAndDrop2; "Drag And Drop")
@@ -18,6 +19,7 @@ pageextension 60000 "Item List Ext" extends "Item List"
         addafter("Item Refe&rences")
         {
             //JOA001+ 
+            //Adding action that will call the page "Items by Countries" and subsequent run the control add-in
             action(ViewItemsByCountry)
             {
                 Caption = 'Item per countries 2';

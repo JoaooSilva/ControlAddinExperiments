@@ -21,7 +21,6 @@ function embedDragDropBox(){
 
 function createIframe(){
   console.log(sizeOfContainer);
-  // sizeOfContainer = 'style="width: 200px;"';
   var placeholder = document.getElementById('controlAddIn');  //find controlAddIn
   var divBox = document.createElement('div');
   divBox.id = 'divBox_id';
@@ -45,20 +44,11 @@ function createIframe(){
                       '</div>';
   console.log(divBox.innerHTML.toString());
   divBox.height =  '100%';
-  // divBox.width = '100%';
-  // divBox.width = '320px';
-  // $("#form").css("width", "400px");
   placeholder.appendChild(divBox);   //add Iframe to controlAddIn
-
-  // let form = document.querySelector("input[id=fileToUpload]");
 }
 
 function fileChanged(event) {
-
   var target = event.target || event.srcElement;
-  // var reader = new FileReader();
-
-  // storeContentFromFiles();
 
   var applyFiles = function(){
     if (this.files.length <= 0) {
@@ -68,14 +58,6 @@ function fileChanged(event) {
       $('.guide').hide();
       for (var i = 0; i < this.files.length - fileCounter; ++i) {
         $('.choosen').append($('<li>').html(this.files[i].name));
-        // var reader = new FileReader();
-        // reader.onload = function(event){
-        //   console.log("Event:", event);
-        //   console.log("Reader result:" ,reader.result);
-        //   filesToMove.push(reader.result.toString());
-        // };
-        // reader.readAsText(event.target.files[i]);
-        // filesToMove.push(event.target.files[i]);
         fileCounter += 1;
       }
     }
@@ -93,32 +75,24 @@ function uploadFiles() {
   $('.choosen').empty();
   $('.guide').show();
 
-
-  // for (var i = 0; i < filesToMove.length; ++i){
-  //   debugger;
-  //   console.log(filesToMove[i].toString());
-  //   switch (i){
-  //     case 0:
-  //       tempSubstring = filesToMove[i].substring(0, filesToMove[0].length - 5);
-  //       tempSubstring += ',';
-  //       finalArrayToSend += tempSubstring;
-  //       break;
-  //     case (filesToMove.length - 1):
-  //       tempSubstring = filesToMove[i].substring(1);
-  //       finalArrayToSend += tempSubstring;
-  //     default:
-  //       tempSubstring = filesToMove[i].substring(1,filesToMove[0].length - 5);
-  //       tempSubstring += ',';
-  //       finalArrayToSend += tempSubstring;
-  //   }
-  //   Microsoft.Dynamics.NAV.InvokeExtensibilityMethod("GetFileContent", [finalArrayToSend]);    
-  // }
+   for (var i = 0; i < filesToMove.length; ++i){
+    debugger;
+    console.log(filesToMove[i].toString());
+    switch (i){
+      case 0:
+        tempSubstring = filesToMove[i].substring(0, filesToMove[0].length - 5);
+        tempSubstring += ',';
+        finalArrayToSend += tempSubstring;
+        break;
+      case (filesToMove.length - 1):
+        tempSubstring = filesToMove[i].substring(1);
+        finalArrayToSend += tempSubstring;
+      default:
+        tempSubstring = filesToMove[i].substring(1,filesToMove[0].length - 5);
+        tempSubstring += ',';
+        finalArrayToSend += tempSubstring;
+    }
+    Microsoft.Dynamics.NAV.InvokeExtensibilityMethod("GetFileContent", [finalArrayToSend]);    
+  } 
 }
-function DeleteBox() {
-  let placeholder = window.parent.document.getElementById("divBox");
-  if (placeholder) {
-    placeholder.remove();
-  }
-}
-
 //JOA004-

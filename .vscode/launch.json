@@ -7,7 +7,7 @@
             "type": "al",
             "environmentType": "OnPrem",
             "server": "http://localhost",
-            "serverInstance": "BC200",
+            "serverInstance": "BC190_Entity",
             "authentication": "Windows",
             "startupObjectId": 60004,
             "startupObjectType": "Page",
@@ -15,7 +15,7 @@
             "launchBrowser": true,
             "tenant": "default",
             "schemaUpdateMode": "ForceSync",
-            "port": 7049
+            "port": 1949//7049
         }
     ]
 }
