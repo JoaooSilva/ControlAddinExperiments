@@ -3,6 +3,7 @@ controladdin CKEditorNotes
 {
     //Only need to specifie the width because the height is automaticcly added by the default editor
     RequestedWidth = 814;
+    MaximumWidth = 814;
     //Script to include in the control add-in.  
     Scripts = 'https://cdn.ckeditor.com/ckeditor5/36.0.1/classic/ckeditor.js', 'src\script\TextEditor.js';
     //This script is invoked when the webpage (in this case page 60005 "Customer Notes" ) with the control add-in is loaded.

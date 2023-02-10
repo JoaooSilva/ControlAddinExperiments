@@ -4,12 +4,10 @@ var Editor
 
 function Init() {
     var div = document.getElementById("controlAddIn");
-    div.style =  "width: 795px; height: 600px;"// overflow:scroll;";//max-height: 450px;";
     div.innerHTML = "";
     InputArea = document.createElement("textarea");
     InputArea.id = "Comment";
     InputArea.name = "Comment";
-    InputArea.style =  "width: 795px; height: 600px;"// overflow:scroll;";//max-height: 450px;";
     
     div.appendChild(InputArea);
     debugger;
@@ -37,7 +35,6 @@ function Init() {
             editor.model.document.on( 'change:data', () => {
                 Microsoft.Dynamics.NAV.InvokeExtensibilityMethod("ContentChanged",[]);    
             } );
-            // editor.config.height("500px");
         })
         .catch(error => {
             console.error(error);
