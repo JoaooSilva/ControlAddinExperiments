@@ -18,6 +18,7 @@ page 60001 "Pie Chart"
                 //When the current page is loaded the control add-in is also loaded, therefore the startup script will run wich will invoke this trigger
                 trigger ControlReady()
                 begin
+                    PieChartInitialized := true;
                     //Procedure that will count Open/Released status from all sales orders
                     CalculateSalesOrderStates();
                 end;
@@ -87,13 +88,18 @@ page 60001 "Pie Chart"
         JsonA.Add(ReleaseCounter);
         DataA.Add(JsonA);
         //Lets send the json array to our javascript function so then we can draw the chart with the data
-        CurrPage.PieChart.PieChart(DataA);
+        if PieChartInitialized then
+            CurrPage.PieChart.PieChart(DataA);
     end;
 
     trigger OnAfterGetCurrRecord()
     begin
-        CalculateSalesOrderStates();    //We can do this because the control add in is already loaded before we get the current record
+        if PieChartInitialized then
+            CalculateSalesOrderStates();    //We can do this because the control add in is already loaded before we get the current record
     end;
+
+    var
+        PieChartInitialized: Boolean;
 
 }
 

@@ -15,6 +15,7 @@ page 60004 "Screen Recorder"
                 ApplicationArea = All;
                 trigger ControlReady()
                 begin
+                    RecorderAddInInitialized := true;
                 end;
                 //If something go wrong and we cannot start to record media or if the user click on the cancel
                 //button this trigger will be activated
@@ -67,6 +68,8 @@ page 60004 "Screen Recorder"
                         Answer: Boolean;
                     begin
                         //This procedure will run the same function on our JS script and start the media recorder
+                        if not RecorderAddInInitialized then
+                            exit;
                         CurrPage.ScreenRecorderControlAddIn.startRecord();
                     end;
                 }
@@ -82,6 +85,8 @@ page 60004 "Screen Recorder"
                     trigger OnAction()
                     begin
                         //This procedure will run the same function on our JS script and stop the media recorder
+                        if not RecorderAddInInitialized then
+                            exit;
                         CurrPage.ScreenRecorderControlAddIn.stopScreen();
                     end;
                 }
@@ -97,6 +102,8 @@ page 60004 "Screen Recorder"
                     trigger OnAction()
                     begin
                         //This procedure will run the same function on our JS script and download the media tracks 
+                        if not RecorderAddInInitialized then
+                            exit;
                         CurrPage.ScreenRecorderControlAddIn.downloadVideo();
                     end;
                 }
@@ -134,11 +141,14 @@ page 60004 "Screen Recorder"
 
     trigger OnOpenPage()
     begin
+        if not RecorderAddInInitialized then
+            exit;
         ButtonsVisibility_InitSates();
     end;
 
     var
         StartRecordingVisibility, StopRecordingVisibility, DownloadVisibility : boolean;
+        RecorderAddInInitialized: Boolean;
 }
 
 //JOA005-

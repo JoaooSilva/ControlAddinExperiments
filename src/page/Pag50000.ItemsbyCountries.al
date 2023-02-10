@@ -55,6 +55,7 @@ page 60000 "Items by Countries"
                     //When the current page is loaded the control add-in is also loaded, therefore the startup script will run wich will invoke this trigger
                     trigger ControlReady()
                     begin
+                        ChartAddInInitialized := true;
                         //Procedure that handles the logic to send json data to our chart
                         CalculateItemsPerCountry(Rec."No.");
                     end;
@@ -134,12 +135,14 @@ page 60000 "Items by Countries"
             DataA.Add(JsonA);
         end;
         //Lets send the json array to our javascript function so then we can draw the chart with the data
-        CurrPage.Chart.GeographicGraph(DataA);
+        if ChartAddInInitialized then //Not needed beacuse we call this function after the initialization of the Control Addd-In, but better safe than sorry
+            CurrPage.Chart.GeographicGraph(DataA);
     end;
 
     var
         DataA: JsonArray;
         JsonA: JsonArray;
+        ChartAddInInitialized: Boolean;
 }
 
 //JOA001-

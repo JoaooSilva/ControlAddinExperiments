@@ -1,5 +1,6 @@
 pageextension 60002 "Customer List Ext" extends "Customer List"
 {
+
     layout
     {
         //JOA003+ 
@@ -14,6 +15,7 @@ pageextension 60002 "Customer List Ext" extends "Customer List"
                     JObject: JsonObject;
                     Slides: JsonArray;
                 begin
+                    CarouselAddInInitialized := true;
                     //Lets add to an array informations about the image title, decription and the link for the image
                     Slides.Add(AddSlide('Keep your promises', 'check before you make a promise', '//unsplash.it/1024/200'));
                     Slides.Add(AddSlide('Never forget', 'always register your conversations to ensure you follow-up promptly', '//unsplash.it/1025/200'));
@@ -99,5 +101,8 @@ pageextension 60002 "Customer List Ext" extends "Customer List"
         Slide.Add('image', Image);
         exit(Slide);
     end;
+
+    var
+        CarouselAddInInitialized: Boolean;
     //JOA003-
 }

@@ -55,6 +55,7 @@ page 60005 "Customer Notes"
                     //The control add in is loaded on the page
                     trigger ControlReady()
                     begin
+                        EditorAddInInitialized := true;
                         //Lets load create and append the text editor
                         CurrPage.EditCtl.Init();
                     end;
@@ -90,6 +91,8 @@ page 60005 "Customer Notes"
     begin
         if EditorReady then begin
             EditorReady := false;
+            if not EditorAddInInitialized then
+                exit;
             CurrPage.EditCtl.Init();
         end;
     end;
@@ -128,6 +131,6 @@ page 60005 "Customer Notes"
 
     var
         EditorReady: Boolean;
+        EditorAddInInitialized: Boolean;
 }
-
 //JOA006-
