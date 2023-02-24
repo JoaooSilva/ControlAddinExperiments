@@ -1,3 +1,4 @@
+//JOA004+
 page 60003 "Drag and Drop"
 {
     PageType = CardPart;
@@ -43,3 +44,5 @@ page 60003 "Drag and Drop"
     }
 }
 
+
+//JOA004-

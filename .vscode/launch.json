@@ -1,21 +1,40 @@
+// {
+//     "version": "0.2.0",
+//     "configurations": [
+//         {
+//             "name": "Add-In Controlers",
+//             "request": "launch",
+//             "type": "al",
+//             "environmentType": "OnPrem",
+//             "server": "http://localhost",
+//             "serverInstance": "BC_190",
+//             "authentication": "Windows",
+//             "startupObjectId": 31,
+//             "startupObjectType": "Page",
+//             "breakOnError": "None",
+//             "launchBrowser": true,
+//             "tenant": "default",
+//             "schemaUpdateMode": "ForceSync",
+//             "port": 1949//7049
+//         }
+//     ]
+// }
 {
     "version": "0.2.0",
     "configurations": [
         {
-            "name": "Add-In Controlers",
-            "request": "launch",
             "type": "al",
-            "environmentType": "OnPrem",
-            "server": "http://localhost",
-            "serverInstance": "BC190_Entity",
+            "request": "launch",
+            "name": "Your own server",
+            "environmentType": "Sandbox",
+            "server": "http://mysandbox",
+            "serverInstance": "BC",
             "authentication": "Windows",
-            "startupObjectId": 31,
+            "startupObjectId": 21,
             "startupObjectType": "Page",
-            "breakOnError": "None",
+            "breakOnError": true,
             "launchBrowser": true,
-            "tenant": "default",
-            "schemaUpdateMode": "ForceSync",
-            "port": 1949//7049
+            "tenant": "default"
         }
     ]
 }

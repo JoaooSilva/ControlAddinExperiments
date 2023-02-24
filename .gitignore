@@ -1,0 +1,12 @@
+# Symbols folder
+.alpackages/
+.snapshots/
+.vscode/.alcache/
+.vscode/.altemplates/
+.vscode/launch.json
+.vscode/rad.json
+.alcache/.altemplates
+
+/# Project Output*
+.app
+.vscode/.alcache/cache_73c3bf35a62d8393547e9bd336f606fef6e98165dd8714e529e53a4098a51523.json

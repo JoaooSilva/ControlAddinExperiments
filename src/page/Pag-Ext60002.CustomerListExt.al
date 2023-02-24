@@ -90,7 +90,6 @@ pageextension 60002 "Customer List Ext" extends "Customer List"
     }
 
 
-
     //JOA003+ 
     local procedure AddSlide(Title: Text; Description: Text; Image: Text): JsonObject
     var

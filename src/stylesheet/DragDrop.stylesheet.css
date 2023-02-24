@@ -1,4 +1,4 @@
-/*  //JOA0041 */
+/*  //JOA004+ */
 .up {
     border: none;
 }
@@ -62,26 +62,26 @@ form {
     margin-top: 2%;
     width: 100%;
     height: 20%;
+    background: #f0f0ff;
+    display: inline-block;
+    font-size: 16px;
+    height: 50px;
+    color: black;
+    border: 1px solid #b9bec5;
+    border-radius: 4px;
 }
-
-.upload input[type='button'] {
-  background: #f0f0ff;
-  display: inline-block;
-  font-size: 16px;
-  height: 50px;
-  color: black;
-  border: 1px solid #b9bec5;
-  border-radius: 4px;
-}
-
-.upload input[type='button']:hover {
+/*
+.upload input[type='button']::file-selector-button:hover {
     color: black; 
     background-color: #b2e9ed;
 }
-
+*/
 .button {
     border: none;
     background: none;
+}
+.button:hover {
+    background-color: #b2e9ed;
 }
 /*  //JOA004- */
 

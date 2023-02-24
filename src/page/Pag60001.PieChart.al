@@ -63,6 +63,7 @@ page 60001 "Pie Chart"
         OpenCounter := 0;
         ReleaseCounter := 0;
         SalesHeader.Reset();
+
         SalesHeader.SetRange("Document Type", SalesDocumentTypeEnum::Order);
         if SalesHeader.FindSet() then begin
             repeat

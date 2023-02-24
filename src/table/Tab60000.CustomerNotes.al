@@ -1,5 +1,5 @@
 //JOA006+ 
-table 60000 "Customer Notes"
+table 60001 "Customer Notes"
 {
     Caption = 'Customer Notes';
     DataClassification = ToBeClassified;

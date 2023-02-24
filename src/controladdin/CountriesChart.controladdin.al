@@ -13,9 +13,9 @@ controladdin "Countries Chart AddIn"
     RequestedWidth = 797;
 
     //In the ControlReady_startup.js we call this event to initialize the control add-in. This event will invoke the trigger ControlReady() in "Items by Countries" page.
-    event ControlReady();
+    event ControlReady()
 
     //Procedure that when called will run the function with same name defined in the scripts, for our example this function is declared in CountriesChartScript.js
-    procedure GeographicGraph(DataJson: JsonArray);
+    procedure GeographicGraph(DataJson: JsonArray)
 }
 //JOA001-
